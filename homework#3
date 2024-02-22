@@ -1,0 +1,129 @@
+#1 Power of a number
+def pow():
+    x = int(input("Enter a number for x: "))
+    y = int(input("Enter a number for y: "))
+    t = x
+    if y == 0:
+        print("1")
+    else:
+        while y > 1:
+            t = x*t
+            y -= 1
+        print(t)
+pow()
+
+#2 Minimum and Maximum
+def min_max(list):
+    if list == []:
+        print("invalid")
+    min_value = max_value = list[0]
+    for num in list:
+        if num < min_value:
+            min_value = num
+        if num > max_value:
+            max_value = num
+    return (min_value, max_value)
+input_list = [3, 69, 420, 50, 1, 87]
+min_value, max_value = min_max(input_list)
+print("Minimum Value: ", min_value)
+print("Maximum Value: ", max_value)
+
+#3 Check Leap Year
+def leapyear():
+    year = int(input("Enter the year: "))
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                print("true")
+            else:
+                print("false")
+        else:
+            print("true")
+    else:
+        print("false")
+leapyear()
+
+#4 Calculate BMI (Body Mass Index)
+def bmi():
+    w = float(input("Weight (kg): "))
+    h = float(input("height (meters): "))
+    h2 = h**2
+    print(w/h2)  
+bmi()
+
+#5 Rotating Digits
+z = int(input("Insert number to be rotated: "))
+def rotate_digits(n):
+    last_digit = n % 10
+    n //= 10
+    digits = 0
+    x = n
+    while x > 0:
+        digits += 1
+        x //= 10
+    rot_num = last_digit * (10**digits) + n
+    return rot_num
+rot_num = rotate_digits(z)
+print("Rotated Number: ", rot_num)
+
+#6 Minimum and Maximum but with loops
+list = [94, 28, 3, 100, 79]
+def min_for(): #finding minimum using for loop
+    min = list[0]
+    for number in list:
+        if (number < min):
+            min = number
+    print("Minimum using the for loop: ", min)
+min_for()
+def max_for(): #finding maximum using for loop
+    max = list[0]
+    for number in list:
+        if (number > max):
+            max = number
+    print("Maximum using the for loop: ", max)
+max_for()
+def min_while(): #finding minimum using while loop
+    minw = list[0]
+    n = 1
+    while (n < len(list)):
+        if list[n] < minw:
+            minw = list[n]
+        n += 1
+    return minw
+minimum = min_while()
+print("Minimum using the while loop: ", minimum)
+min_while()
+def max_while(): #finding maximum using while loop
+    maxw = list[0]
+    n = 1
+    while (n < len(list)):
+        if list[n] > maxw:
+            maxw = list[n]
+        n += 1
+    return maxw
+max_while()
+#list = [94, 28, 3, 100, 79]
+maximumw = max_while()
+print("Maximum using the while loop: ", maximumw)
+
+#7 Vowels
+def vowelcount(string):
+    count = 0
+    vowels = "aeiouAEIOU"
+    for i in string:
+        for j in vowels:
+            if i == j:
+                count += 1
+    return count
+    
+a = vowelcount("UC Berkeley")
+print("Vowel Count", a)
+
+#8 Digital Root
+def digital_root(int):
+    sum = 0
+    while int != 0:
+        sum += int % 10
+        int = int // 10
+    return sum
+print("Digital Root: ", digital_root(12345))
